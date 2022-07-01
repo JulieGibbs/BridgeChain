@@ -1,0 +1,21 @@
+syntax = "proto3";
+package vigorousdeveloper.pochuman.pochuman;
+
+option go_package = "github.com/VigorousDeveloper/poc-human/x/pochuman/types";
+
+message TransactionData {
+  string index = 1; 
+  string originChain = 2; 
+  string originAddress = 3; 
+  string targetChain = 4; 
+  string targetAddress = 5; 
+  string amount = 6; 
+  string time = 7; 
+  string creator = 8; 
+  string status = 9; 
+  string confirmedBlockHash = 10; 
+  string signedKey = 11; 
+  string fee = 12; 
+  
+}
+

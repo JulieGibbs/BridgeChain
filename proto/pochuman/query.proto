@@ -1,0 +1,175 @@
+syntax = "proto3";
+package vigorousdeveloper.pochuman.pochuman;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "pochuman/params.proto";
+import "pochuman/fee_balance.proto";
+import "pochuman/keysign_vote_data.proto";
+import "pochuman/observe_vote.proto";
+import "pochuman/pool_balance.proto";
+import "pochuman/transaction_data.proto";
+// this line is used by starport scaffolding # 1
+
+option go_package = "github.com/VigorousDeveloper/poc-human/x/pochuman/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/params";
+  }
+  // Queries a FeeBalance by index.
+	rpc FeeBalance(QueryGetFeeBalanceRequest) returns (QueryGetFeeBalanceResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/fee_balance/{index}";
+	}
+
+	// Queries a list of FeeBalance items.
+	rpc FeeBalanceAll(QueryAllFeeBalanceRequest) returns (QueryAllFeeBalanceResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/fee_balance";
+	}
+
+// Queries a KeysignVoteData by index.
+	rpc KeysignVoteData(QueryGetKeysignVoteDataRequest) returns (QueryGetKeysignVoteDataResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/keysign_vote_data/{index}";
+	}
+
+	// Queries a list of KeysignVoteData items.
+	rpc KeysignVoteDataAll(QueryAllKeysignVoteDataRequest) returns (QueryAllKeysignVoteDataResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/keysign_vote_data";
+	}
+
+// Queries a ObserveVote by index.
+	rpc ObserveVote(QueryGetObserveVoteRequest) returns (QueryGetObserveVoteResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/observe_vote/{index}";
+	}
+
+	// Queries a list of ObserveVote items.
+	rpc ObserveVoteAll(QueryAllObserveVoteRequest) returns (QueryAllObserveVoteResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/observe_vote";
+	}
+
+// Queries a PoolBalance by index.
+	rpc PoolBalance(QueryGetPoolBalanceRequest) returns (QueryGetPoolBalanceResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/pool_balance/{index}";
+	}
+
+	// Queries a list of PoolBalance items.
+	rpc PoolBalanceAll(QueryAllPoolBalanceRequest) returns (QueryAllPoolBalanceResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/pool_balance";
+	}
+
+// Queries a TransactionData by index.
+	rpc TransactionData(QueryGetTransactionDataRequest) returns (QueryGetTransactionDataResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/transaction_data/{index}";
+	}
+
+	// Queries a list of TransactionData items.
+	rpc TransactionDataAll(QueryAllTransactionDataRequest) returns (QueryAllTransactionDataResponse) {
+		option (google.api.http).get = "/VigorousDeveloper/poc-human/pochuman/transaction_data";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetFeeBalanceRequest {
+	  string index = 1;
+
+}
+
+message QueryGetFeeBalanceResponse {
+	FeeBalance feeBalance = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllFeeBalanceRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllFeeBalanceResponse {
+	repeated FeeBalance feeBalance = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetKeysignVoteDataRequest {
+	  string index = 1;
+
+}
+
+message QueryGetKeysignVoteDataResponse {
+	KeysignVoteData keysignVoteData = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllKeysignVoteDataRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllKeysignVoteDataResponse {
+	repeated KeysignVoteData keysignVoteData = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetObserveVoteRequest {
+	  string index = 1;
+
+}
+
+message QueryGetObserveVoteResponse {
+	ObserveVote observeVote = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllObserveVoteRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllObserveVoteResponse {
+	repeated ObserveVote observeVote = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetPoolBalanceRequest {
+	  string index = 1;
+
+}
+
+message QueryGetPoolBalanceResponse {
+	PoolBalance poolBalance = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllPoolBalanceRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllPoolBalanceResponse {
+	repeated PoolBalance poolBalance = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetTransactionDataRequest {
+	  string index = 1;
+
+}
+
+message QueryGetTransactionDataResponse {
+	TransactionData transactionData = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllTransactionDataRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllTransactionDataResponse {
+	repeated TransactionData transactionData = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// this line is used by starport scaffolding # 3

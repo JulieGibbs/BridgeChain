@@ -1,0 +1,18 @@
+syntax = "proto3";
+package vigorousdeveloper.pochuman.pochuman;
+
+option go_package = "github.com/VigorousDeveloper/poc-human/x/pochuman/types";
+
+message ObserveVote {
+  string index = 1; 
+  string creator = 2; 
+  string txhash = 3; 
+  string from = 4; 
+  string to = 5; 
+  string amount = 6; 
+  string txtime = 7; 
+  string chainId = 8; 
+  string used = 9; 
+  
+}
+

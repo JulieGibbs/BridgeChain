@@ -1,0 +1,14 @@
+syntax = "proto3";
+package vigorousdeveloper.pochuman.pochuman;
+
+option go_package = "github.com/VigorousDeveloper/poc-human/x/pochuman/types";
+
+message KeysignVoteData {
+  string index = 1; 
+  string txHash = 2; 
+  string pubKey = 3; 
+  string voter = 4; 
+  string txTime = 5; 
+  
+}
+

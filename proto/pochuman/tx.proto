@@ -1,0 +1,92 @@
+syntax = "proto3";
+package vigorousdeveloper.pochuman.pochuman;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "github.com/VigorousDeveloper/poc-human/x/pochuman/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc RequestTransaction(MsgRequestTransaction) returns (MsgRequestTransactionResponse);
+      rpc ObservationVote(MsgObservationVote) returns (MsgObservationVoteResponse);
+      rpc UpdateBalance(MsgUpdateBalance) returns (MsgUpdateBalanceResponse);
+      rpc KeysignVote(MsgKeysignVote) returns (MsgKeysignVoteResponse);
+  rpc ApproveTransaction(MsgApproveTransaction) returns (MsgApproveTransactionResponse);
+  rpc TranfserPoolcoin(MsgTranfserPoolcoin) returns (MsgTranfserPoolcoinResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgRequestTransaction {
+  string creator = 1;
+  string originChain = 2;
+  string originAddress = 3;
+  string targetChain = 4;
+  string targetAddress = 5;
+  string amount = 6;
+  string fee = 7;
+}
+
+message MsgRequestTransactionResponse {
+  string code = 1;
+  string msg = 2;
+}
+
+message MsgObservationVote {
+  string creator = 1;
+  string txHash = 2;
+  string chainName = 3;
+  string from = 4;
+  string to = 5;
+  string amount = 6;
+}
+
+message MsgObservationVoteResponse {
+  string code = 1;
+  string msg = 2;
+}
+
+message MsgUpdateBalance {
+  string creator = 1;
+  string chainName = 2;
+  string balance = 3;
+  string decimal = 4;
+}
+
+message MsgUpdateBalanceResponse {
+  string code = 1;
+  string msg = 2;
+}
+
+message MsgKeysignVote {
+  string creator = 1;
+  string txHash = 2;
+  string pubKey = 3;
+}
+
+message MsgKeysignVoteResponse {
+  string code = 1;
+  string msg = 2;
+}
+
+message MsgApproveTransaction {
+  string creator = 1;
+  string txHash = 2;
+  string success = 3;
+  string signedKey = 4;
+}
+
+message MsgApproveTransactionResponse {
+  string code = 1;
+  string msg = 2;
+}
+
+message MsgTranfserPoolcoin {
+  string creator = 1;
+  string addr = 2;
+  string amt = 3;
+}
+
+message MsgTranfserPoolcoinResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message

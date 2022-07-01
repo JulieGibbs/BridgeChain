@@ -1,0 +1,13 @@
+syntax = "proto3";
+package vigorousdeveloper.pochuman.pochuman;
+
+option go_package = "github.com/VigorousDeveloper/poc-human/x/pochuman/types";
+
+message FeeBalance {
+  string index = 1; 
+  string chainName = 2; 
+  string balance = 3; 
+  string decimal = 4; 
+  
+}
+

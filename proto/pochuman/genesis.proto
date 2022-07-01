@@ -1,0 +1,24 @@
+syntax = "proto3";
+package vigorousdeveloper.pochuman.pochuman;
+
+import "gogoproto/gogo.proto";
+import "pochuman/params.proto";
+import "pochuman/fee_balance.proto";
+import "pochuman/keysign_vote_data.proto";
+import "pochuman/observe_vote.proto";
+import "pochuman/pool_balance.proto";
+import "pochuman/transaction_data.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/VigorousDeveloper/poc-human/x/pochuman/types";
+
+// GenesisState defines the pochuman module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  repeated FeeBalance feeBalanceList = 2 [(gogoproto.nullable) = false];
+  repeated KeysignVoteData keysignVoteDataList = 3 [(gogoproto.nullable) = false];
+  repeated ObserveVote observeVoteList = 4 [(gogoproto.nullable) = false];
+  repeated PoolBalance poolBalanceList = 5 [(gogoproto.nullable) = false];
+  repeated TransactionData transactionDataList = 6 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}
